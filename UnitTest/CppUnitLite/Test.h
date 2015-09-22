@@ -24,7 +24,7 @@ public:
 	Test (const SimpleString& testName);
 
 	virtual void	run (TestResult& result) = 0;
-
+	virtual ~Test(){}
 
 	void			setNext(Test *test);
 	Test			*getNext () const;
@@ -43,7 +43,7 @@ protected:
 #define TEST(testName, testGroup)\
   class testGroup##testName##Test : public Test \
 	{ public: testGroup##testName##Test () : Test (#testName "Test") {} \
-            void run (TestResult& result_); } \
+            void run (TestResult& result_);}\
     testGroup##testName##Instance; \
 	void testGroup##testName##Test::run (TestResult& result_) 
 
