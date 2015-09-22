@@ -6,12 +6,25 @@
  */
 
 #include "includes.h"
+#include <iostream>
+#include "ExceptionBase.h"
+using namespace AndromedaSolutions;
 
 int main()
 {
-     TestResult tr;
-     TestRegistry::runAllTests(tr);
+	try{
+     //TestResult tr;
+     //TestRegistry::runAllTests(tr);
+throw ExceptionBase("Test");
+  //   ExceptionBase e("Hello World!");
+
+
+    // throw e;
      return 0;
+	}catch(std::exception& e)
+	{
+		std::cout << e.what();
+	}
 }
 
 TEST(EqualitySuccess, EqualityGroup)
